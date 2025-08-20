@@ -62,3 +62,18 @@ for i in range(1, max):
         odd_numbers.append(i)  # Add odd numbers to the list
 print("odd__numbers", odd_numbers)
 
+
+
+Questions: 4 
+class Solution:
+    def largestElement(self, nums: List[int]) -> int:
+        # Approach 1: sort and pick last
+        # nums.sort()
+        # return nums[-1]
+
+        # Approach 2 (optimal): scan once
+        largest = nums[0]
+        for num in nums:
+            if num > largest:
+                largest = num
+        return largest

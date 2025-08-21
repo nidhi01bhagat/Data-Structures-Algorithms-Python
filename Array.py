@@ -80,4 +80,35 @@ class Solution:
 
 
 
-Question 5:
+Question 5: from typing import List
+
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+        n = len(nums)
+        count = 0
+        
+        for i in range(n):
+            # Compare current with next (circular using %)
+            if nums[i] > nums[(i + 1) % n]:
+                count += 1
+            # If more than one break, not sorted+rotated
+            if count > 1:
+                return False
+        
+        return True
+Question 6 
+def getElements(arr, n):
+    if n == 0 or n == 1:
+        print(-1, -1)  # edge case when only one element is present in array
+    arr.sort()
+    small = arr[1]
+    large = arr[n-2]
+    print("Second smallest is", small)
+    print("Second largest is", large)
+
+if __name__ == '__main__':
+    arr = [1, 2, 4, 6, 7, 5]
+    n = len(arr)
+    getElements(arr, n)
+
+Question 7 Second Largest Element 

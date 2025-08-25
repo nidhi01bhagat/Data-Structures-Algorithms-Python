@@ -111,4 +111,4 @@ if __name__ == '__main__':
     n = len(arr)
     getElements(arr, n)
 
-Question 7 Second Largest Element 
+Question 7 Second Largest Element :

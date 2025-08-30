@@ -130,3 +130,40 @@ def second_largest(nums):
 
     return second if second != float('-inf') else -1
 
+
+8: Linear Search : class Solution:
+    def find_index_rec(arr, num, i=0):
+    if i == len(arr):
+        return -1
+    return i if arr[i] == num else find_index_rec(arr, num, i+1)
+
+
+9: Linear Search : def first_index(nums, target):
+    for i, x in enumerate(nums):
+        if x == target:
+            return i
+    return -1
+
+10: Left Rotate an array by one place
+from typing import List
+import math
+
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        # In-place triple reversal, O(1) extra space
+        n = len(nums)
+        if n == 0:
+            return
+        k %= n
+        if k == 0:
+            return
+
+        def rev(l: int, r: int) -> None:
+            while l < r:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1; r -= 1
+
+        rev(0, n - 1)
+        rev(0, k - 1)
+        rev(k, n - 1)
+

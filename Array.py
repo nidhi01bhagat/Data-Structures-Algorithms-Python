@@ -112,4 +112,21 @@ if __name__ == '__main__':
     getElements(arr, n)
 
 Question 7 Second Largest Element :
+def second_largest(nums):
+    # One pass, O(n) time, O(1) space
+    if len(nums) < 2:
+        return -1
+
+    largest = float('-inf')
+    second = float('-inf')
+
+    for x in nums:
+        if x > largest:
+            # x becomes the new largest; old largest may become second
+            second, largest = largest, x
+        elif largest > x > second:
+            # x is strictly between current largest and second
+            second = x
+
+    return second if second != float('-inf') else -1
 

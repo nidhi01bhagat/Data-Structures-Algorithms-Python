@@ -112,3 +112,4 @@ if __name__ == '__main__':
     getElements(arr, n)
 
 Question 7 Second Largest Element :
+

@@ -192,3 +192,4 @@ class Solution:
         return s == s[::-1]  # check if forward == backward
 # This solution runs in O(d) time and O(d) space, where d is the number of digits. It’s simple, but not optimal in terms of space. If we want O(1) space, we need the math-based approach.
 it uses extra memory (because it creates a string).
+

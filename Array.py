@@ -183,4 +183,12 @@ class Solution:
         # Even length: x == reversed_half
         # Odd length: x == reversed_half // 10
         return x == reversed_half or x == reversed_half // 10
-12 : 
+
+
+12 : with string 
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        s = str(x)           # convert number to string
+        return s == s[::-1]  # check if forward == backward
+# This solution runs in O(d) time and O(d) space, where d is the number of digits. It’s simple, but not optimal in terms of space. If we want O(1) space, we need the math-based approach.
+it uses extra memory (because it creates a string).

@@ -167,3 +167,20 @@ class Solution:
         rev(0, k - 1)
         rev(k, n - 1)
 
+11: Number is Palindrome or not solve it without using string 
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        # negatives or numbers ending with 0 but not 0 itself can't be palindrome
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+        
+        reversed_half = 0
+        while x > reversed_half:
+            digit = x % 10
+            reversed_half = reversed_half * 10 + digit
+            x //= 10
+        
+        # Even length: x == reversed_half
+        # Odd length: x == reversed_half // 10
+        return x == reversed_half or x == reversed_half // 10
+12 : 

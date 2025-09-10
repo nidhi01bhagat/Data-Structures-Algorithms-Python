@@ -1,0 +1,9 @@
+1: Search The Element In the Array : 
+N, X = map(int, input().split())
+A = list(map(int, input().split()))
+
+# Linear search
+if X in A:
+    print("YES")
+else:
+    print("NO")

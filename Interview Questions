@@ -111,3 +111,24 @@ class Solution:
             left += 1
             right -= 1
         # No return needed, since it's in-place
+
+4: def isAnagram(s, t):
+    # Quick check: lengths must match
+    if len(s) != len(t):
+        return False
+    
+    count = {}
+    
+    # Count frequency of each character in s
+    for ch in s:
+        count[ch] = count.get(ch, 0) + 1
+    
+    # Subtract frequency using characters from t
+    for ch in t:
+        if ch not in count:
+            return False
+        count[ch] -= 1
+        if count[ch] < 0:  # More of ch in t than in s
+            return False
+    
+    return True

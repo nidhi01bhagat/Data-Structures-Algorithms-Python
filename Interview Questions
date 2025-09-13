@@ -129,3 +129,11 @@ class Solution:
                 return False
 
         return True
+
+
+5: missing number
+class Solution:
+    def missingNumber(self, nums):
+        n = len(nums)
+        total = n * (n + 1) // 2   # expected sum
+        return total - sum(nums)   # subtract actual sum

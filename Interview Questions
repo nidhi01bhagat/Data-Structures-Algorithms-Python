@@ -112,23 +112,20 @@ class Solution:
             right -= 1
         # No return needed, since it's in-place
 
-4: def isAnagram(s, t):
-    # Quick check: lengths must match
-    if len(s) != len(t):
-        return False
-    
-    count = {}
-    
-    # Count frequency of each character in s
-    for ch in s:
-        count[ch] = count.get(ch, 0) + 1
-    
-    # Subtract frequency using characters from t
-    for ch in t:
-        if ch not in count:
+4: class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
             return False
-        count[ch] -= 1
-        if count[ch] < 0:  # More of ch in t than in s
-            return False
-    
-    return True
+
+        count = {}
+        for ch in s:
+            count[ch] = count.get(ch, 0) + 1
+
+        for ch in t:
+            if ch not in count:
+                return False
+            count[ch] -= 1
+            if count[ch] < 0:
+                return False
+
+        return True

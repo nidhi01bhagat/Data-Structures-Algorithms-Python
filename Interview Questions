@@ -137,3 +137,19 @@ class Solution:
         n = len(nums)
         total = n * (n + 1) // 2   # expected sum
         return total - sum(nums)   # subtract actual sum
+
+
+6 : Minimize Binary String with Limited Swaps
+1. Problem in Simple Words
+You have a binary string (only 0 and 1).
+You can do at most k swaps.
+Each swap can only exchange adjacent characters.
+Goal: make the string lexicographically smallest (i.e., as many 0s as possible toward the left).
+
+2. Key Insights
+Lexicographic order = compare strings left to right → earliest 0 wins.
+A 0 needs # of 1s to its left swaps to reach the front.
+Each swap lets a 0 move left by 1 step.
+Prioritize moving the earliest 0 as far left as possible (greedy).
+
+Code : 

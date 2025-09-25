@@ -138,8 +138,19 @@ class Solution:
         total = n * (n + 1) // 2   # expected sum
         return total - sum(nums)   # subtract actual sum
 
+6 : Check Number is Prime Or NOT 
+def isPrime(n):
+    if n <= 1:
+        return False
+    
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    
+    return True
 
-6 : Minimize Binary String with Limited Swaps
+
+7 : Minimize Binary String with Limited Swaps
 1. Problem in Simple Words
 You have a binary string (only 0 and 1).
 You can do at most k swaps.

@@ -174,4 +174,28 @@ A 0 needs # of 1s to its left swaps to reach the front.
 Each swap lets a 0 move left by 1 step.
 Prioritize moving the earliest 0 as far left as possible (greedy).
 
-Code : 
+Code :  def getSmallestString(s: str, k: int) -> str:
+    s = list(s)
+    n = len(s)
+    result = []
+    zero_positions = [i for i, ch in enumerate(s) if ch == '0']  # store all zero indices
+    z_ptr = 0  # pointer to next zero
+    
+    for i in range(n):
+        # If this position can become a '0'
+        if z_ptr < len(zero_positions):
+            distance = zero_positions[z_ptr] - i
+            if distance <= k:
+                # We can move this zero all the way here
+                result.append('0')
+                k -= distance
+                z_ptr += 1
+            else:
+                # Can't move it fully, so place current char
+                result.append(s[i])
+            # Skip if s[i] was already used
+        else:
+            result.append(s[i])
+    
+    return ''.join(result)
+ 

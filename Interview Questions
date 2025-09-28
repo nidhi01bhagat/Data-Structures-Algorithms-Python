@@ -199,3 +199,27 @@ Code :  def getSmallestString(s: str, k: int) -> str:
     
     return ''.join(result)
  
+8 : # fun_with_anagrams.py
+
+from typing import List
+
+def fun_with_anagrams(words: List[str]) -> List[str]:
+    """
+    Removes duplicate anagrams from the list and returns
+    the remaining words sorted lexicographically.
+    """
+    seen_signatures = set()
+    result = []
+
+    for word in words:
+        signature = ''.join(sorted(word))
+        if signature not in seen_signatures:
+            seen_signatures.add(signature)
+            result.append(word)
+
+    return sorted(result)
+
+if __name__ == "__main__":
+    # Example usage
+    sample_words = ["code", "doce", "framer", "frame", "coder"]
+    print(fun_with_anagrams(sample_words))

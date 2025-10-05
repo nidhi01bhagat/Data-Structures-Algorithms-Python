@@ -223,3 +223,27 @@ if __name__ == "__main__":
     # Example usage
     sample_words = ["code", "doce", "framer", "frame", "coder"]
     print(fun_with_anagrams(sample_words))
+
+
+
+9: Single Element In A shorted Array : 
+class Solution:
+    def singleNonDuplicate(self, nums):
+        left, right = 0, len(nums) - 1
+
+        while left < right:
+            mid = (left + right) // 2
+
+            # Ensure mid is even (so mid and mid+1 form a pair)
+            if mid % 2 == 1:
+                mid -= 1
+
+            if nums[mid] == nums[mid + 1]:
+                # Left part is fine, single is on the right
+                left = mid + 2
+            else:
+                # Single is on the left side (including mid)
+                right = mid
+
+        # When left == right, we've found the single element
+        return nums[left]

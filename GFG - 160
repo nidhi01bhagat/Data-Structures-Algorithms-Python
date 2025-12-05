@@ -13,4 +13,42 @@ class Solution:
 
         return second
 
-2:
+2: The task is to convert a given string into an integer without using built-in conversion functions like int().
+class Solution:
+    def myAtoi(self, s):
+        s = s.strip("\n\r")           # ✔ FIX 1
+        INT_MAX = 2147483647
+        INT_MIN = -2147483648
+        
+        i = 0
+        n = len(s)
+        
+        # skip leading spaces
+        while i < n and s[i] == ' ':  # ✔ FIX 2
+            i += 1
+        
+        if i == n:
+            return 0
+        
+        # check sign
+        sign = 1
+        if s[i] == '-':
+            sign = -1
+            i += 1
+        elif s[i] == '+':
+            i += 1
+        
+        result = 0
+        
+        # convert digits
+        while i < n and s[i].isdigit():
+            digit = ord(s[i]) - ord('0')
+            
+            if (result > INT_MAX // 10) or \
+               (result == INT_MAX // 10 and digit > INT_MAX % 10):
+                return INT_MAX if sign == 1 else INT_MIN
+            
+            result = result * 10 + digit
+            i += 1
+        
+        return result * sign          # ✔ FIX 3 (outside loop)

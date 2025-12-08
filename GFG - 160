@@ -16,7 +16,7 @@ class Solution:
 2: The task is to convert a given string into an integer without using built-in conversion functions like int().
 class Solution:
     def myAtoi(self, s):
-        s = s.strip("\n\r")           # ✔ FIX 1
+        s = s.strip("\n\r")           
         INT_MAX = 2147483647
         INT_MIN = -2147483648
         
@@ -24,7 +24,7 @@ class Solution:
         n = len(s)
         
         # skip leading spaces
-        while i < n and s[i] == ' ':  # ✔ FIX 2
+        while i < n and s[i] == ' ': 
             i += 1
         
         if i == n:
@@ -51,4 +51,24 @@ class Solution:
             result = result * 10 + digit
             i += 1
         
-        return result * sign          # ✔ FIX 3 (outside loop)
+        return result * sign        
+
+
+3: Push All Zeros to the End While Maintaining Order
+
+class Solution:
+	def pushZerosToEnd(self, arr):
+    	j = 0
+    	
+    	# move all non-zero elements to the front
+    	for i in range (len(arr)):
+    	    if arr[i] != 0:
+    	        arr[j] = arr[i]
+    	        j += 1
+    	        
+    	 #fill the remaining positions with zeros 
+    	while j < len(arr):
+    	     arr[j] = 0
+    	     j += 1
+    	 
+    	return arr
